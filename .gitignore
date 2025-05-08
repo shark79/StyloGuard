@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.pkl
+*.db
+.env
+venv/
+*.pdf
+*.docx
+resources/sample_essays/*
