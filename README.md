@@ -1,93 +1,95 @@
-# StyloGuard
+# 🛡️ StyloGuard — Stylometric Authorship Verification
 
-**StyloGuard** is a Streamlit-based authorship verification and stylometric analysis tool designed to support academic integrity through detailed writing style analysis. It allows evaluators to analyze essays, compare stylistic features across submissions, and use deep learning models to detect potential authorship inconsistencies.
+**StyloGuard** is an AI-powered academic integrity tool that analyzes and verifies authorship by capturing unique writing style fingerprints. Built with Streamlit and fine-tuned deep learning models, it helps educators detect stylistic inconsistencies across student submissions.
 
----
-
-## 📌 Project Overview
-
-With the increasing use of AI-generated or paraphrased content, traditional plagiarism checkers are no longer sufficient on their own. *StyloGuard* provides an additional layer of verification by analyzing and comparing the **writing style** of students based on linguistic features and fine-tuned machine learning models.
-
-The tool includes three major functionalities:
-
-1. **Direct Analysis** – Analyze the writing style of a single essay.
-2. **Feature Comparison** – Compare the stylistic similarity between two essays using extracted features.
-3. **Stylometric Similarity Checker** – Use a fine-tuned BERT model to detect whether two essays are likely written by the same author, regardless of topic.
+[![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)](https://streamlit.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ---
 
-## 🚀 Running the App
+## 🎯 Problem Statement
 
-You can run this app either locally or on **Streamlit Cloud**.
-
-### 👉 On Streamlit Cloud:
-1. Upload this project to a public GitHub repository.
-2. Go to [https://streamlit.io/cloud](https://streamlit.io/cloud) and sign in.
-3. Select the GitHub repository and deploy the app.
-4. Once the app is live, refer to the **Home** page within the application for a detailed guide on how to use each feature effectively.
-
-### 👉 Locally (for developers):
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/StyloGuard.git
-    cd StyloGuard
-    ```
-
-2. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. Download required NLP resources:
-    ```bash
-    python -m spacy download en_core_web_sm
-    ```
-
-4. Run the app:
-    ```bash
-    streamlit run StyloGuard.py
-    ```
+Traditional plagiarism checkers miss AI-generated or paraphrased content. StyloGuard adds a complementary layer of verification — comparing **how** something is written, not just what is written, using 10 stylometric features unique to each writer.
 
 ---
 
-## 🧠 Features
+## ✨ Features
 
-- 20+ unique stylometric features including readability, lexical diversity, sentiment, and syntactic structure.
-- Save analyzed essays and metadata to a PostgreSQL database.
-- Weighted similarity comparison using radar plots.
-- Deep learning–based stylometric similarity detection using a fine-tuned Sentence-BERT model.
-- Support for both text input and file uploads (`.pdf` and `.docx` formats).
-
----
-
-## 📚 Learning How to Use It
-
-Once you launch the app, visit the **Home** page (formerly the About page). It provides a step-by-step explanation of how to use each part of the tool, including:
-- What each page does,
-- What kind of input is expected,
-- What results to expect, and
-- How to interpret the similarity scores.
-
-This built-in documentation will guide any user—technical or non-technical—through the tool effectively.
+| Feature | Description |
+|---|---|
+| ✍️ Direct Analysis | Extract 10 stylometric features from any essay instantly |
+| 🔁 Comparative Verification | Compare a submission against a student's reference essays |
+| 🧠 Deep Learning Model | Fine-tuned triplet-loss model for stylometric embedding similarity |
+| 🗃️ SQL-backed Storage | Automated pipeline linking stylometric indexes to Student IDs |
+| 📊 Visual Insights | Side-by-side feature comparison charts |
 
 ---
 
-## 🔧 Technical Stack
+## 🧮 Stylometric Features Analyzed
 
-- **Frontend:** Streamlit
-- **NLP Tools:** SpaCy, TextBlob, NLTK, Sentence-BERT
-- **Database:** PostgreSQL (for saving student and essay data)
-- **Visualization:** Plotly
+- Average sentence length
+- Type-token ratio (vocabulary richness)
+- Punctuation frequency
+- Function word usage
+- Average word length
+- Passive voice ratio
+- Sentence complexity
+- Paragraph structure
+- Lexical diversity
+- POS tag distributions
 
 ---
 
-## 📜 License
+## 🏗️ Architecture
 
-This project is available under the MIT License.
+```
+Student Essay Input
+       │
+       ▼
+Feature Extractor (10 stylometric features)
+       │
+       ├──▶ Direct Analysis Mode → Feature Report
+       │
+       └──▶ Comparison Mode → Fine-tuned Triplet Model → Similarity Score
+                                       │
+                               SQL Pipeline (Student ID → Style Index)
+```
 
 ---
 
-## 🙋‍♂️ Contributions
+## 🚀 Getting Started
 
-Feel free to fork the repository or suggest improvements through pull requests or issues. Any suggestions that help improve usability or functionality are welcome.
+```bash
+git clone https://github.com/shark79/StyloGuard.git
+cd StyloGuard
+pip install -r requirements.txt
+streamlit run StyloGuard.py
+```
 
+---
+
+## 🧰 Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| Streamlit | Web app UI |
+| PyTorch | Fine-tuned triplet-loss model |
+| SQLite | Stylometric index storage |
+| scikit-learn | Feature engineering |
+| spaCy / NLTK | NLP preprocessing |
+
+---
+
+## 📌 Use Cases
+
+- University essay verification workflows
+- Writing style tracking across a semester
+- Detecting AI-ghostwritten submissions
+
+---
+
+## 👤 Author
+
+**Shashank Jamkhandi** — AI Engineer  
+[LinkedIn](https://www.linkedin.com/in/sjam) | [GitHub](https://github.com/shark79)
